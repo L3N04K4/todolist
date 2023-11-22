@@ -1,9 +1,9 @@
 *{
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 body {
     background-color: #FAFAFA;
-    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     padding-top: 50px;
 }
 nav{
@@ -20,7 +20,8 @@ h4,
 h5,
 h6
     {
-    font-family: 'Comfortaa', sans-serif;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
 }
 a:hover,  #add-link:hover{
     color: #FFC26F;

@@ -9,6 +9,8 @@ from django.contrib.auth import login
 from django.shortcuts import redirect
 from .models import *
 from .forms import *
+from rest_framework import generics
+from .serializers import *
 
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
@@ -17,8 +19,6 @@ class CustomLoginView(LoginView):
 
     def get_success_url(self):
         return reverse_lazy('tasks')
-
-
 class RegisterPage(FormView):
     template_name = 'base/register.html'
     form_class = UserCreationForm
@@ -35,8 +35,6 @@ class RegisterPage(FormView):
         if self.request.user.is_authenticated:
             return redirect('tasks')
         return super(RegisterPage, self).get(*args, **kwargs)
-
-
 class TaskList(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
@@ -62,13 +60,10 @@ class TaskList(LoginRequiredMixin, ListView):
         else:
             queryset = queryset.filter(user=self.request.user)
         return queryset
-
 class TaskDetail(LoginRequiredMixin, DetailView):
     model = Task
     context_object_name = 'task'
     template_name = 'base/task.html'
-
-
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
     fields = ['title','category', 'filter', 'hashtag', 'description', 'complete', 'notice']
@@ -76,15 +71,10 @@ class TaskCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(TaskCreate, self).form_valid(form)
-    
-
-
 class TaskUpdate(LoginRequiredMixin, UpdateView):
     model = Task
     fields = ['title','category', 'filter','hashtag', 'description', 'complete', 'notice']
     success_url = reverse_lazy('tasks')
-
-
 class DeleteView(LoginRequiredMixin, DeleteView):
     model = Task
     context_object_name = 'task'
@@ -92,3 +82,6 @@ class DeleteView(LoginRequiredMixin, DeleteView):
     def get_queryset(self):
         owner = self.request.user
         return self.model.objects.filter(user=owner)
+class TaskAPIView(generics.ListAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
