@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from base.views import TaskAPIView
+from base.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('base.urls')),
     path("__debug__/", include("debug_toolbar.urls")),
-    path('api/v1/tasklist', TaskAPIView.as_view())
+    path('api/v1/tasklist', TaskAPIList.as_view()),
+    path('api/v1/tasklist/<int:pk>/', TaskAPIUpdate.as_view()),
+    path('api/v1/taskdetail/<int:pk>/', TaskAPIDetailView.as_view())
 ]

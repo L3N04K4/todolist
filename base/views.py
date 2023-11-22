@@ -11,6 +11,8 @@ from .models import *
 from .forms import *
 from rest_framework import generics
 from .serializers import *
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
@@ -82,6 +84,22 @@ class DeleteView(LoginRequiredMixin, DeleteView):
     def get_queryset(self):
         owner = self.request.user
         return self.model.objects.filter(user=owner)
-class TaskAPIView(generics.ListAPIView):
+# class TaskAPIView(generics.ListAPIView):
+#     queryset = Task.objects.all()
+#     serializer_class = TaskSerializer
+# class TaskAPIView(APIView):
+#     def get(self, request):
+#         t = Task.objects.all()
+#         return Response({'tasks': TaskSerializer(t, many=True).data})
+class TaskAPIList(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+
+class TaskAPIUpdate(generics.UpdateAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+
+class TaskAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+    
