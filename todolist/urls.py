@@ -23,5 +23,8 @@ urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
     path('api/v1/tasklist', TaskAPIList.as_view()),
     path('api/v1/tasklist/<int:pk>/', TaskAPIUpdate.as_view()),
-    path('api/v1/taskdetail/<int:pk>/', TaskAPIDetailView.as_view())
+    path('api/v1/taskdetail/<int:pk>/', TaskAPIDetailView.as_view()),
+    path('api/v1/userlist', UserAPIList.as_view()),
+    path('api/v1/userlist/<int:pk>/', UserAPIUpdate.as_view()),
+    path('api/v1/userdetail/<int:pk>/', UserAPIDetailView.as_view())
 ]
