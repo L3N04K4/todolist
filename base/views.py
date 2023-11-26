@@ -13,6 +13,11 @@ from rest_framework import generics
 from .serializers import *
 from rest_framework.views import APIView
 from rest_framework.response import Response
+import django_filters 
+from rest_framework.decorators import action, api_view
+from rest_framework.reverse import reverse
+from rest_framework import viewsets
+from rest_framework import status
 
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
@@ -91,11 +96,17 @@ class DeleteView(LoginRequiredMixin, DeleteView):
 #     def get(self, request):
 #         t = Task.objects.all()
 #         return Response({'tasks': TaskSerializer(t, many=True).data})
-class TaskAPIList(generics.ListCreateAPIView):
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer
 
-class TaskAPIUpdate(generics.UpdateAPIView):
+@api_view(['GET'])
+def api_root(request, format=None):
+        return Response({
+        'tasks': reverse('task-list', request=request, format=format),
+        'user': reverse('user-list-create', request=request, format=format),
+        
+    })  
+
+
+class TaskAPIList(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
@@ -103,15 +114,43 @@ class TaskAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
+class TaskApiListViewSet(viewsets.ModelViewSet):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_fields = ['title']
+
+    @action(detail=False, methods=['GET'])
+    def custom_action_list(self, request):
+        task = Task.objects.filter(complete=True)
+        serializer = TaskSerializer(task, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    @action(detail=True, methods=['POST'])
+    def custom_action_detail(self, request, pk=None):
+        # Логика для действия на уровне конкретного ресурса
+        task = self.get_object()
+        # Ваш код обработки POST-запроса на уровне конкретного объекта
+        return Response({"message": f"Custom action on task {task.title}"})
+
 class UserAPIList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
-class UserAPIUpdate(generics.UpdateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_fields = ['username']
 
 class UserAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     
+class UserAPIListViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    @action(detail=False, methods=['GET'])
+    def custom_action_list(self, request):
+        return Response({"message": "Custom action on user list"})
+
+    @action(detail=True, methods=['POST'])
+    def custom_action_detail(self, request, pk=None):
+        user = self.get_object()
+        return Response({"message": f"Custom action on user {user.username}"})   
