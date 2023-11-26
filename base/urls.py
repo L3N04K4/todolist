@@ -22,5 +22,6 @@ urlpatterns = [
     path('task-list/<int:pk>/', TaskAPIDetailView.as_view(), name='task-detail'),
     path('user-list/', UserAPIList.as_view(), name='user-list-create'),
     path('user-list/<int:pk>/', UserAPIDetailView.as_view(), name='user-detail'),
+    path('api/query-task/', QueryTaskAPIView.as_view(), name='query-task'),
     path('api/', include(router.urls)),
 ]

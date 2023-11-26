@@ -9,7 +9,6 @@ from django.contrib.auth import login
 from django.shortcuts import redirect
 from .models import *
 from .forms import *
-from rest_framework import generics
 from .serializers import *
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -18,6 +17,8 @@ from rest_framework.decorators import action, api_view
 from rest_framework.reverse import reverse
 from rest_framework import viewsets
 from rest_framework import status
+from django.db.models import Q
+from rest_framework import generics, pagination
 
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
@@ -154,3 +155,10 @@ class UserAPIListViewSet(viewsets.ModelViewSet):
     def custom_action_detail(self, request, pk=None):
         user = self.get_object()
         return Response({"message": f"Custom action on user {user.username}"})   
+    
+class QueryTaskAPIView(generics.ListAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+    def get_queryset(self):
+        queryset = Task.objects.filter(Q(title__startswith = 'П') | Q(description__startswith = 'К'))
+        return queryset
