@@ -119,7 +119,7 @@ class TaskApiListViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-    filterset_fields = ['title']
+    filterset_fields = ['title', 'category', 'complete']
 
     @action(detail=False, methods=['GET'])
     def custom_action_list(self, request):
@@ -156,9 +156,16 @@ class UserAPIListViewSet(viewsets.ModelViewSet):
         user = self.get_object()
         return Response({"message": f"Custom action on user {user.username}"})   
     
-class QueryTaskAPIView(generics.ListAPIView):
+class QueryTask1APIView(generics.ListAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     def get_queryset(self):
-        queryset = Task.objects.filter(Q(title__startswith = 'П') | Q(description__startswith = 'К'))
+        queryset = Task.objects.filter(Q(title__startswith = 'П') | ~ Q(title__startswith = 'С'))
+        return queryset
+    
+class QueryTask2APIView(generics.ListAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+    def get_queryset(self):
+        queryset = Task.objects.filter(Q(title__startswith = 'О') & ~ Q(description__startswith = 'д'))
         return queryset

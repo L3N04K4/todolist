@@ -2,6 +2,11 @@ from rest_framework import serializers
 from .models import *
 
 class TaskSerializer(serializers.ModelSerializer):
+     def validate_title(self, value):
+        if len(value) < 5:
+            raise serializers.ValidationError("Заголовок должен быть более 5 символов.")
+        return value
+     
      class Meta:
          model = Task
          fields = "__all__"
