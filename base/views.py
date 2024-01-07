@@ -19,6 +19,7 @@ from rest_framework import viewsets
 from rest_framework import status
 from django.db.models import Q
 from rest_framework import generics, pagination
+from rest_framework import filters
 
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
@@ -110,6 +111,19 @@ def api_root(request, format=None):
 class TaskAPIList(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+    @action(detail=False, methods=['GET'])
+    def custom_action_list(self, request):
+        task = Task.objects.filter(complete=True)
+        serializer = TaskSerializer(task, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    @action(detail=True, methods=['POST'])
+    def custom_action_detail(self, request, pk=None):
+        serializer = TaskSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class TaskAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
@@ -119,25 +133,20 @@ class TaskApiListViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-    filterset_fields = ['title', 'category', 'complete']
+    filterset_fields = ['category', 'complete']
+    
 
-    @action(detail=False, methods=['GET'])
-    def custom_action_list(self, request):
-        task = Task.objects.filter(complete=True)
-        serializer = TaskSerializer(task, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    @action(detail=True, methods=['POST'])
-    def custom_action_detail(self, request, pk=None):
-        # Логика для действия на уровне конкретного ресурса
-        task = self.get_object()
-        # Ваш код обработки POST-запроса на уровне конкретного объекта
-        return Response({"message": f"Custom action on task {task.title}"})
+    def get_queryset(self):
+        user = self.request.user
+        return Task.objects.filter(user_id=user)
+
+    
 
 class UserAPIList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-    filterset_fields = ['username']
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['username']
 
 class UserAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
@@ -147,25 +156,19 @@ class UserAPIListViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    @action(detail=False, methods=['GET'])
-    def custom_action_list(self, request):
-        return Response({"message": "Custom action on user list"})
-
-    @action(detail=True, methods=['POST'])
-    def custom_action_detail(self, request, pk=None):
-        user = self.get_object()
-        return Response({"message": f"Custom action on user {user.username}"})   
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['username']
     
 class QueryTask1APIView(generics.ListAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     def get_queryset(self):
-        queryset = Task.objects.filter(Q(title__startswith = 'П') | ~ Q(title__startswith = 'С'))
+        queryset = Task.objects.filter(Q(title__startswith = 'К') | (Q(title__startswith = 'П') | ~ Q(title__startswith = 'С')))
         return queryset
     
 class QueryTask2APIView(generics.ListAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     def get_queryset(self):
-        queryset = Task.objects.filter(Q(title__startswith = 'О') & ~ Q(description__startswith = 'д'))
+        queryset = Task.objects.filter(Q(title__startswith = 'К') | (Q(title__startswith = 'О') & ~ Q(description__startswith = 'д')))
         return queryset

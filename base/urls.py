@@ -25,4 +25,6 @@ urlpatterns = [
     path('api/query-task1/', QueryTask1APIView.as_view(), name='query-task1'),
     path('api/query-task2/', QueryTask2APIView.as_view(), name='query-task2'),
     path('api/', include(router.urls)),
+    path('api/custom_action_list/', TaskAPIList.as_view(), name='custom_action_list'),
+    path('api/custom_action_detail/', TaskAPIList.as_view(), name='custom_action_detail'),
 ]

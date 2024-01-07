@@ -3,7 +3,7 @@
 <div class="wrapper">
 <div class="header-bar">
     <div>
-        <h1>Здравствуйте <span>{{request.user|title}}</span></h1>
+        <h1>Здравствуйте, <span>{{request.user|title}}</span>!</h1>
         <h3 style="margin:0">У вас незавершено <span>{{count}}</span>{{ count|ru_plural:" дело, дела , дел" }}</h3>
     </div>
     {% if request.user.is_authenticated %}
