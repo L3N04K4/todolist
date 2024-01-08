@@ -7,8 +7,7 @@ class TaskSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Заголовок должен быть более 5 символов.")
         return value
      def validate_user(self, value):
-        listA = [];
-        if not len(listA):
+        if value is None:
             raise serializers.ValidationError("Выберите пользователя!")
         return value
      class Meta:

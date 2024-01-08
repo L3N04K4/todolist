@@ -4,8 +4,8 @@ from .views import *
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register(r'tasks', TaskApiListViewSet, basename='task')
-router.register(r'user', UserAPIListViewSet, basename='user')
+router.register(r'api/tasks', TaskApiListViewSet, basename='task')
+router.register(r'api/user', UserAPIListViewSet, basename='user')
 
 urlpatterns = [
     path('login/', CustomLoginView.as_view(), name='login'),
@@ -25,6 +25,7 @@ urlpatterns = [
     path('api/query-task1/', QueryTask1APIView.as_view(), name='query-task1'),
     path('api/query-task2/', QueryTask2APIView.as_view(), name='query-task2'),
     path('api/', include(router.urls)),
-    path('api/custom_action_list/', TaskAPIList.as_view(), name='custom_action_list'),
-    path('api/custom_action_detail/', TaskAPIList.as_view(), name='custom_action_detail'),
+    path('api/tasks/custom_action/', TaskApiListViewSet.as_view({'get': 'custom_action_list'}), name='task-custom-action-list'),
+    path('api/tasks/custom_action_detail/', TaskApiListViewSet.as_view({'post': 'custom_action_detail'}), name='task-custom-action-list-detail'),
 ]
+urlpatterns += router.urls

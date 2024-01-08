@@ -9,11 +9,11 @@ class TaskResource(resources.ModelResource):
         model = Task
 
     def get_user(self, task):
-        user = task.user  # Получаем объект пользователя, связанного с задачей
-        return user.username if user else ''  # Возвращаем имя пользователя или пустую строку, если пользователь не найден
+        user = task.user  
+        return user.username if user else ''  
 
     def dehydrate_user(self, task):
-        return self.get_user(task)  # Используем кастомизированный метод для получения имени пользователя
+        return self.get_user(task)  
 
     
 

@@ -111,19 +111,6 @@ def api_root(request, format=None):
 class TaskAPIList(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
-    @action(detail=False, methods=['GET'])
-    def custom_action_list(self, request):
-        task = Task.objects.filter(complete=True)
-        serializer = TaskSerializer(task, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    
-    @action(detail=True, methods=['POST'])
-    def custom_action_detail(self, request, pk=None):
-        serializer = TaskSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class TaskAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
@@ -134,20 +121,29 @@ class TaskApiListViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
     filterset_fields = ['category', 'complete']
-    
 
     def get_queryset(self):
         user = self.request.user
         return Task.objects.filter(user_id=user)
-
+    
+    @action(detail=False, methods=['GET'])
+    def custom_action_list(self, request):
+        tasks = Task.objects.filter(complete=True)
+        serializer = TaskSerializer(tasks, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    @action(detail=True, methods=['POST'])
+    def custom_action_detail(self, request, pk=None):
+        serializer = TaskSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
 class UserAPIList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['username']
-
+    
 class UserAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
