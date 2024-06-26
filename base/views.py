@@ -1,3 +1,7 @@
+from django.conf import settings
+from django.core.cache import cache
+from django.core.cache.backends.base import DEFAULT_TIMEOUT
+from django.views.decorators.cache import cache_page
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
@@ -7,10 +11,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.shortcuts import redirect
-from .models import *
-from .forms import *
 from .serializers import *
 from rest_framework.views import APIView
+import redis
 from rest_framework.response import Response
 import django_filters 
 from rest_framework.decorators import action, api_view
@@ -21,6 +24,7 @@ from django.db.models import Q
 from rest_framework import generics, pagination
 from rest_framework import filters
 
+
 class CustomLoginView(LoginView):
     template_name = 'base/login.html'
     fields = '__all__'
@@ -28,6 +32,8 @@ class CustomLoginView(LoginView):
 
     def get_success_url(self):
         return reverse_lazy('tasks')
+
+
 class RegisterPage(FormView):
     template_name = 'base/register.html'
     form_class = UserCreationForm
@@ -44,10 +50,14 @@ class RegisterPage(FormView):
         if self.request.user.is_authenticated:
             return redirect('tasks')
         return super(RegisterPage, self).get(*args, **kwargs)
+
+
 class TaskList(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
     cats = Categories.objects.all()
+
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['tasks'] = context['tasks'].filter(user=self.request.user)
@@ -61,43 +71,62 @@ class TaskList(LoginRequiredMixin, ListView):
         context['search_input'] = search_input
 
         return context
+
     def get_queryset(self):
-        queryset = super().get_queryset()
         category = self.request.GET.get('category', None)
+        queryset = cache.get('taskList')
+        if queryset is None:
+            print('db')
+            queryset = super().get_queryset()
+            if category:
+                qf = queryset.filter(category__name=category, user=self.request.user)
+                cache.set('taskList', qf, timeout=5)
+                return qf
+            else:
+                cache.set('taskList', queryset, timeout=5)
+                return queryset
+        print('cache')
         if category:
-            queryset = queryset.filter(category__name=category, user=self.request.user)
-        else:
-            queryset = queryset.filter(user=self.request.user)
+            return queryset.filter(category__name=category, user=self.request.user)
         return queryset
+
+
 class TaskDetail(LoginRequiredMixin, DetailView):
     model = Task
     context_object_name = 'task'
     template_name = 'base/task.html'
+
+
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
     fields = ['title','category', 'filter', 'hashtag', 'description', 'complete', 'notice']
     success_url = reverse_lazy('tasks')
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(TaskCreate, self).form_valid(form)
+
+
 class TaskUpdate(LoginRequiredMixin, UpdateView):
     model = Task
     fields = ['title','category', 'filter','hashtag', 'description', 'complete', 'notice']
     success_url = reverse_lazy('tasks')
+
+
 class DeleteView(LoginRequiredMixin, DeleteView):
     model = Task
     context_object_name = 'task'
     success_url = reverse_lazy('tasks')
+
     def get_queryset(self):
         owner = self.request.user
-        return self.model.objects.filter(user=owner)
-# class TaskAPIView(generics.ListAPIView):
-#     queryset = Task.objects.all()
-#     serializer_class = TaskSerializer
-# class TaskAPIView(APIView):
-#     def get(self, request):
-#         t = Task.objects.all()
-#         return Response({'tasks': TaskSerializer(t, many=True).data})
+        if 'deleteList' in cache:
+            return cache.get('deleteList')
+        else:
+            queryset = self.model.objects.filter(user=owner)
+            cache.set('deleteList', queryset, timeout=10)
+            return queryset
+
 
 @api_view(['GET'])
 def api_root(request, format=None):
@@ -112,9 +141,11 @@ class TaskAPIList(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
+
 class TaskAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+
 
 class TaskApiListViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
@@ -124,13 +155,19 @@ class TaskApiListViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-        return Task.objects.filter(user_id=user)
+        if 'taskList' in cache:
+            return cache.get('taskList')
+        else:
+            queryset = Task.objects.filter(user_id=user)
+            cache.set('taskList', queryset, timeout=10)
+        return queryset
     
     @action(detail=False, methods=['GET'])
     def custom_action_list(self, request):
         tasks = Task.objects.filter(complete=True)
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
     @action(detail=True, methods=['POST'])
     def custom_action_detail(self, request, pk=None):
         serializer = TaskSerializer(data=request.data)
@@ -143,28 +180,34 @@ class TaskApiListViewSet(viewsets.ModelViewSet):
 class UserAPIList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    
+
+
 class UserAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    
+
+
 class UserAPIListViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
     filter_backends = [filters.SearchFilter]
     search_fields = ['username']
-    
+
+
 class QueryTask1APIView(generics.ListAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+
     def get_queryset(self):
         queryset = Task.objects.filter(Q(title__startswith = 'К') | (Q(title__startswith = 'П') | ~ Q(title__startswith = 'С')))
         return queryset
-    
+
+
 class QueryTask2APIView(generics.ListAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+
     def get_queryset(self):
         queryset = Task.objects.filter(Q(title__startswith = 'К') | (Q(title__startswith = 'О') & ~ Q(description__startswith = 'д')))
         return queryset

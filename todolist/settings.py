@@ -43,8 +43,29 @@ INSTALLED_APPS = [
     'import_export',
     'simple_history',
     'drf_yasg',
+    'celery'
     'social_django',
 ]
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        },
+        "KEY_PREFIX": "example"
+    }
+}
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_BEAT_SCHEDULE = {
+    'send-daily-emails': {
+        'task': 'base.tasks.send_daily_emails',
+        'schedule': 86400.0,
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -176,3 +197,17 @@ SOCIAL_AUTH_NEW_ASSOCIATION_REDIRECT_URL = '/'
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/login-error/'
 SOCIAL_AUTH_DISCONNECT_REDIRECT_URL = '/'
 SOCIAL_AUTH_INACTIVE_USER_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'korablin1605@gmail.com'
+EMAIL_HOST_PASSWORD = 'ndom ntmg myyw esho'
+
+CELERY_BEAT_SCHEDULE = { # scheduler configuration
+    'send_email': {  # whatever the name you want
+        'task': 'test_app.tasks.task_one', # name of task with path
+        'schedule': 30.0, # crontab() runs the tasks every minute
+    }
+}
