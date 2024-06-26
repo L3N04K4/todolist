@@ -49,13 +49,13 @@ services:
       - '1025:1025'
       - '8025:8025'
 
-  # flower:
-  #   build: .
-  #   command: /usr/src/app/entrypoint.sh
-  #   environment:
-  #     - DJANGO_SERVICE=flower
-  #   ports:
-  #     - "5555:5555"
-  #   depends_on:
-  #     - redis
-  #     - celery
+  flower:
+    build: .
+    command: /usr/src/app/entrypoint.sh
+    environment:
+      - DJANGO_SERVICE=flower
+    ports:
+      - "5555:5555"
+    depends_on:
+      - redis
+      - celery

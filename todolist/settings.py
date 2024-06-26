@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'celery',
     'social_django',
+    'django_celery_beat',
 ]
 
 CACHES = {
@@ -202,3 +203,6 @@ CELERY_BEAT_SCHEDULE = { # scheduler configuration
         'schedule': 30.0, # crontab() runs the tasks every minute
     }
 }
+
+CELERY_BROKER_URL = "redis://redis:6379/0"
+CELERY_RESULT_BACKEND = "redis://redis:6379/0"
