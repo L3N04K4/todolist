@@ -7,8 +7,13 @@
         <h3 style="margin:0">У вас незавершено <span>{{count}}</span>{{ count|ru_plural:" дело, дела , дел" }}</h3>
     </div>
     {% if request.user.is_authenticated %}
-    <a href="{% url 'logout' %}">Выйти</a> {% else %}
-    <a href="{% url 'login' %}">Войти</a> {% endif %}
+    <form id="logout-form" method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Выйти</button>
+    </form>
+    {% else %}
+        <p><a href="{% url 'login' %}">Войти</a></p>
+    {% endif %}
 </div>
 <div id="search-add-wrapper">
     <form method="GET" style="display: flex;">

@@ -11,5 +11,8 @@
         <input class="button" type="submit" value="Вход">
     </form>
     <p>У вас нет аккаунта? <a href="{% url 'register' %}">Регистрация</a></p>
+    <p style="margin: 0.4em;">
+        <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
+    </p>
 </div>
 {% endblock content %}

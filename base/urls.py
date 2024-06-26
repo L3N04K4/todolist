@@ -16,8 +16,7 @@ urlpatterns = [
     path('task-create/', TaskCreate.as_view(), name='task-create'),
     path('task-update/<int:pk>/', TaskUpdate.as_view(), name='task-update'),
     path('task-delete/<int:pk>/', DeleteView.as_view(), name='task-delete'),
-
-    
+    path('social/', include('social_django.urls', namespace='social')),
     path('task-list/', TaskAPIList.as_view(), name='task-list-create'),
     path('task-list/<int:pk>/', TaskAPIDetailView.as_view(), name='task-detail'),
     path('user-list/', UserAPIList.as_view(), name='user-list-create'),
