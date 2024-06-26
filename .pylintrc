@@ -1,4 +1,4 @@
-[MAIN]
+﻿[MAIN]
 
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists
@@ -93,7 +93,7 @@ prefer-stubs=no
 
 # Minimum Python version to use for version dependent checks. Will default to
 # the version used to run pylint.
-py-version=3.12
+py-version=3.11
 
 # Discover python modules and packages in the file system subtree.
 recursive=no

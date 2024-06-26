@@ -1,0 +1,2940 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2023-06-28T14:59:01.628Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Работа",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2023-06-28T14:59:06.592Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Дом",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2023-06-28T14:59:13.896Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Развлечения",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2023-06-28T14:59:22.291Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Питомцы",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2023-06-28T14:59:32.197Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Личное",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2023-06-28T14:59:38.532Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Магазин",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2023-06-28T14:59:45.153Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Важно",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2023-06-28T14:59:49.210Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "Срочно",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2023-06-28T15:01:11.327Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Задание",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2023-06-28T15:15:52.820Z",
+    "user": 2,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "Images object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2023-06-28T17:21:24.401Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Покупки",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2023-06-28T17:22:13.876Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Для себя",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2023-06-28T17:22:22.619Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Для другого",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2023-06-28T17:22:37.556Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "Учеба",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2023-06-28T17:23:01.915Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "Хозяйство",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2023-06-28T17:24:15.845Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "9",
+    "object_repr": "Письма",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2023-06-28T17:24:22.110Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "10",
+    "object_repr": "Другое",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2023-06-28T17:24:36.714Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "Отложено",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2023-06-28T17:24:42.558Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "4",
+    "object_repr": "Не важно",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2023-06-28T17:25:41.608Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Купить",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2023-06-28T17:25:48.954Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "6",
+    "object_repr": "Доделать",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2023-06-28T17:28:22.189Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "7",
+    "object_repr": "Утро",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2023-06-28T17:28:27.883Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "8",
+    "object_repr": "День",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2023-06-28T17:28:36.593Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "9",
+    "object_repr": "Вечер",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2023-06-28T17:28:41.197Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "10",
+    "object_repr": "Ночь",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2023-06-28T17:28:50.756Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Семья",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2023-06-28T17:28:56.177Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Дети",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2023-06-28T17:29:01.967Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Коллеги",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2023-06-28T17:29:07.068Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "Друзья",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2023-06-28T17:29:18.117Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "Социальные сети",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2023-06-28T17:31:54.494Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "9",
+    "object_repr": "Родители",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2023-06-28T17:36:00.036Z",
+    "user": 2,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "Одногруппники",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2023-06-28T17:36:13.980Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "Лучше сделать сегодня",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2023-06-28T17:36:26.469Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "2",
+    "object_repr": "На день рождения",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2023-06-28T17:36:36.077Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "3",
+    "object_repr": "Не забыть купить",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2023-06-28T17:36:53.555Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "4",
+    "object_repr": "Доделать в ближайшее время",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2023-06-28T17:39:08.657Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "5",
+    "object_repr": "Погасить долг",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2023-06-28T18:43:41.423Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "6",
+    "object_repr": "Сделать на неделе",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2023-06-28T18:53:20.103Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "7",
+    "object_repr": "Записаться",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2023-06-28T18:55:16.416Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "8",
+    "object_repr": "Позвонить",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2023-06-28T19:04:15.142Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "9",
+    "object_repr": "Сделать в этом месяце",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2023-06-28T19:13:04.522Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "10",
+    "object_repr": "Отремонтировать",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2023-06-28T20:19:00.445Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "15",
+    "object_repr": "Починить холодильник — 2023-06-13",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2023-06-28T20:19:09.653Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "14",
+    "object_repr": "Стрижка — 2023-05-25",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2023-06-28T20:19:18.269Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "13",
+    "object_repr": "Сделать уборку — 2023-04-14",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2023-06-28T20:19:27.532Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "12",
+    "object_repr": "Купить корм — 2023-06-14",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2023-06-28T20:19:33.843Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "11",
+    "object_repr": "Ответь на почту — 2023-06-19",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2023-06-28T20:19:42.694Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "10",
+    "object_repr": "Посадить цветы на даче — 2023-05-26",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2023-06-28T20:19:52.419Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "8",
+    "object_repr": "Погулять с друзьями — 2023-04-05",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2023-06-28T20:20:00.713Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "6",
+    "object_repr": "Выложить проект — 2023-05-12",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2023-06-28T20:20:09.348Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "Отдать долг — 2023-03-23",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2023-06-28T20:20:16.291Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Отнести ноутбук в ремонт — 2023-06-27",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2023-06-28T20:20:23.950Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "Выложить пост — 2023-03-30",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2023-06-28T20:20:38.295Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "9",
+    "object_repr": "Купить подарок на день рождения — 2023-05-20",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2023-11-26T15:58:45.876Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "15",
+    "object_repr": "Починить холодильник — 2023-06-13",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2023-11-26T15:59:27.825Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "15",
+    "object_repr": "Починить холодильник — 2023-06-13",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Filter\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2024-06-23T05:18:01.074Z",
+    "user": 11,
+    "content_type": 17,
+    "object_id": "1",
+    "object_repr": "loksifon1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add categories",
+    "content_type": 7,
+    "codename": "add_categories"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change categories",
+    "content_type": 7,
+    "codename": "change_categories"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete categories",
+    "content_type": 7,
+    "codename": "delete_categories"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view categories",
+    "content_type": 7,
+    "codename": "view_categories"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add filter",
+    "content_type": 8,
+    "codename": "add_filter"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change filter",
+    "content_type": 8,
+    "codename": "change_filter"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete filter",
+    "content_type": 8,
+    "codename": "delete_filter"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view filter",
+    "content_type": 8,
+    "codename": "view_filter"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add hashtag",
+    "content_type": 9,
+    "codename": "add_hashtag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change hashtag",
+    "content_type": 9,
+    "codename": "change_hashtag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete hashtag",
+    "content_type": 9,
+    "codename": "delete_hashtag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view hashtag",
+    "content_type": 9,
+    "codename": "view_hashtag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add task",
+    "content_type": 10,
+    "codename": "add_task"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change task",
+    "content_type": 10,
+    "codename": "change_task"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete task",
+    "content_type": 10,
+    "codename": "delete_task"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view task",
+    "content_type": 10,
+    "codename": "view_task"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add images",
+    "content_type": 11,
+    "codename": "add_images"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change images",
+    "content_type": 11,
+    "codename": "change_images"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete images",
+    "content_type": 11,
+    "codename": "delete_images"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view images",
+    "content_type": 11,
+    "codename": "view_images"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add notice",
+    "content_type": 12,
+    "codename": "add_notice"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change notice",
+    "content_type": 12,
+    "codename": "change_notice"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete notice",
+    "content_type": 12,
+    "codename": "delete_notice"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view notice",
+    "content_type": 12,
+    "codename": "view_notice"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add historical task",
+    "content_type": 13,
+    "codename": "add_historicaltask"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change historical task",
+    "content_type": 13,
+    "codename": "change_historicaltask"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete historical task",
+    "content_type": 13,
+    "codename": "delete_historicaltask"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view historical task",
+    "content_type": 13,
+    "codename": "view_historicaltask"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add association",
+    "content_type": 14,
+    "codename": "add_association"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change association",
+    "content_type": 14,
+    "codename": "change_association"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete association",
+    "content_type": 14,
+    "codename": "delete_association"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view association",
+    "content_type": 14,
+    "codename": "view_association"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add code",
+    "content_type": 15,
+    "codename": "add_code"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change code",
+    "content_type": 15,
+    "codename": "change_code"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete code",
+    "content_type": 15,
+    "codename": "delete_code"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view code",
+    "content_type": 15,
+    "codename": "view_code"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add nonce",
+    "content_type": 16,
+    "codename": "add_nonce"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change nonce",
+    "content_type": 16,
+    "codename": "change_nonce"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete nonce",
+    "content_type": 16,
+    "codename": "delete_nonce"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view nonce",
+    "content_type": 16,
+    "codename": "view_nonce"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 65,
+  "fields": {
+    "name": "Can add user social auth",
+    "content_type": 17,
+    "codename": "add_usersocialauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 66,
+  "fields": {
+    "name": "Can change user social auth",
+    "content_type": 17,
+    "codename": "change_usersocialauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 67,
+  "fields": {
+    "name": "Can delete user social auth",
+    "content_type": 17,
+    "codename": "delete_usersocialauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 68,
+  "fields": {
+    "name": "Can view user social auth",
+    "content_type": 17,
+    "codename": "view_usersocialauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 69,
+  "fields": {
+    "name": "Can add partial",
+    "content_type": 18,
+    "codename": "add_partial"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 70,
+  "fields": {
+    "name": "Can change partial",
+    "content_type": 18,
+    "codename": "change_partial"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 71,
+  "fields": {
+    "name": "Can delete partial",
+    "content_type": 18,
+    "codename": "delete_partial"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 72,
+  "fields": {
+    "name": "Can view partial",
+    "content_type": 18,
+    "codename": "view_partial"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$yi0UXY1YvP0Rt8CVj9He3m$HdY63fJYXwHjlcNZcrOJpT+EeL9VKyoil4PGyMJKUFA=",
+    "last_login": "2023-06-28T14:58:02.544Z",
+    "is_superuser": false,
+    "username": "l3n04k4",
+    "first_name": "",
+    "last_name": "",
+    "email": "l3n04k4@gamil.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-06-28T14:58:02.012Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$kuTfPzSCIU85cb5UAcOSaw$aaePiZzzCMVAo2n7MII90OzrUNl1NTEyk5E2t/tmvzU=",
+    "last_login": "2024-01-07T15:41:22.812Z",
+    "is_superuser": true,
+    "username": "lenochka",
+    "first_name": "",
+    "last_name": "",
+    "email": "l3n4.iakusheva@yandex.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-06-28T14:58:35.679Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$Lub90PQz8uoWdqrfDbmG1O$Z3s8mq1/0DPQWpS5P5sQpEIPcJbfOk328XALGJa8wQc=",
+    "last_login": "2023-06-28T18:38:56.802Z",
+    "is_superuser": false,
+    "username": "Polina",
+    "first_name": "",
+    "last_name": "",
+    "email": "polinett@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-06-28T18:38:56.442Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$8PNe1jHAnWh0Iixbf2shIk$57JK2Oaq2AbDU962RUmOIlMzYe3WoZ8PiM/1rpJURGM=",
+    "last_login": "2023-06-28T18:44:24.540Z",
+    "is_superuser": false,
+    "username": "Соня",
+    "first_name": "",
+    "last_name": "",
+    "email": "sofi.dj@yandex.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-06-28T18:42:20.346Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$MS61PcOXC33SFUDQpsLCGJ$xsFT5hAIJc3KxPLHfoNrJBfxxUQ6+Ox8xdVXbCg0c3Y=",
+    "last_login": "2023-06-28T18:46:13.017Z",
+    "is_superuser": false,
+    "username": "Даша",
+    "first_name": "",
+    "last_name": "",
+    "email": "daria.chulok@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-06-28T18:46:12.645Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$dsFdbcJEG67MmNKaE6p54l$mpCPps3qLQ/E9HCq4Wj+GbQ1COGR6a+0U57d8IRMFGw=",
+    "last_login": "2023-06-28T18:48:07.328Z",
+    "is_superuser": false,
+    "username": "Лёша",
+    "first_name": "",
+    "last_name": "",
+    "email": "rybkin.leha@yandex.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-06-28T18:48:06.975Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$tl8ZRMLPUqZOiD2TIIu5Zv$lf9J/LEp9duxgNZNKOI4PbW5Or6w08pYVqUC0inezUY=",
+    "last_login": "2023-06-28T18:49:38.180Z",
+    "is_superuser": false,
+    "username": "Alexander",
+    "first_name": "",
+    "last_name": "",
+    "email": "twelffe@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-06-28T18:49:37.823Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$d9Em1sD3g5w4OaE8ne1ufo$XduTPIaEukBkoQnPfJSOWuJSkzQ8tmBtuqYtGxSqWEY=",
+    "last_login": "2023-06-28T18:51:09.804Z",
+    "is_superuser": false,
+    "username": "Дима",
+    "first_name": "",
+    "last_name": "",
+    "email": "thedimass.best@yandex.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-06-28T18:51:09.442Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$Ld02s5h8dXbtMBYJyTgboN$4Rf/ln4hyQmDWg1/MDTIUmDcgeVAtRbdqqmRxchN1Jc=",
+    "last_login": "2023-06-28T18:52:12.811Z",
+    "is_superuser": false,
+    "username": "Liza",
+    "first_name": "",
+    "last_name": "",
+    "email": "lissa.malinaa@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-06-28T18:52:12.450Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$rc5pquwQExJpHFWrjKCgUc$9jecXRo/xJpY3TNWRpk06V+pcMTMnzvEOkllM3tI6LU=",
+    "last_login": "2023-06-28T19:13:33.677Z",
+    "is_superuser": false,
+    "username": "Исмаил",
+    "first_name": "",
+    "last_name": "",
+    "email": "Ismail.Syl@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-06-28T19:13:33.287Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$hVXv1ip0K0mkUpRfkvYArD$10/kZo7uwDN8OrZG732ETjDw9p6fC+anyQjrOw83it4=",
+    "last_login": "2024-06-23T06:02:47.045Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-06-23T03:15:49.853Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "!a6MrxT0vKfDO15ltZO0rvFKGvnfhrgiFT4IvnAwz",
+    "last_login": "2024-06-23T06:03:58.342Z",
+    "is_superuser": false,
+    "username": "loksifon1",
+    "first_name": "Владислав",
+    "last_name": "Корнелюк",
+    "email": "loksifon1@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-06-23T04:41:42.432Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 13,
+  "fields": {
+    "password": "!DI3qEAA3GN5k6eNhr4VsPSLJuqhMvoRh481UYHRh",
+    "last_login": "2024-06-26T19:00:54.325Z",
+    "is_superuser": false,
+    "username": "beingp0z1t1v3",
+    "first_name": "Not",
+    "last_name": "Too Bad",
+    "email": "beingp0z1t1v3@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-06-26T18:59:52.819Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "base",
+    "model": "categories"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "base",
+    "model": "filter"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "base",
+    "model": "hashtag"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "base",
+    "model": "task"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "base",
+    "model": "images"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "base",
+    "model": "notice"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "base",
+    "model": "historicaltask"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "social_django",
+    "model": "association"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "social_django",
+    "model": "code"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "social_django",
+    "model": "nonce"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "social_django",
+    "model": "usersocialauth"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 18,
+  "fields": {
+    "app_label": "social_django",
+    "model": "partial"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7jvsu3uck14eb0hpvgfu6ltk6pv4cmtk",
+  "fields": {
+    "session_data": ".eJxVjE0OwiAYBe_C2hBAoNWle89Avj-kaiAp7cp4d23ShW7fzLyXSrAuJa1d5jSxOiunDr8bAj2kboDvUG9NU6vLPKHeFL3Trq-N5XnZ3b-DAr18axiPWSIDu4BGiC2Q4YEsofHsvQMQyiyjDdEZxxljiBDgJDDkjMLq_QEn_zn2:1r7ETV:O2BRblARj1Xk_dnDqWKeUk-G2DAxKRqXzG1D1jDsEI8",
+    "expire_date": "2023-12-10T12:43:01.041Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "eam7jnul2fw7mrbesfm5y3n1yta7t313",
+  "fields": {
+    "session_data": ".eJxVjE0OwiAYBe_C2hBAoNWle89Avj-kaiAp7cp4d23ShW7fzLyXSrAuJa1d5jSxOiunDr8bAj2kboDvUG9NU6vLPKHeFL3Trq-N5XnZ3b-DAr18axiPWSIDu4BGiC2Q4YEsofHsvQMQyiyjDdEZxxljiBDgJDDkjMLq_QEn_zn2:1rMVH8:PsDCPz-2fpMb6Sx_8TS2U-OwsoeV_G2HGr-PGGnmPk4",
+    "expire_date": "2024-01-21T15:41:22.885Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "mec1p1y8w425i2by6zqqsn8wdp7s48i5",
+  "fields": {
+    "session_data": ".eJxVjE0OwiAYBe_C2hBAoNWle89Avj-kaiAp7cp4d23ShW7fzLyXSrAuJa1d5jSxOiunDr8bAj2kboDvUG9NU6vLPKHeFL3Trq-N5XnZ3b-DAr18axiPWSIDu4BGiC2Q4YEsofHsvQMQyiyjDdEZxxljiBDgJDDkjMLq_QEn_zn2:1r5jt1:XxgdFWNV5LlodSILYjX3ZVyiJ1cdiLXKcZyyp2caF-8",
+    "expire_date": "2023-12-06T09:51:11.526Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rpdjtg0f08j6phyv2q24vkgoikgxym7v",
+  "fields": {
+    "session_data": ".eJxVjE0OwiAYBe_C2hBAoNWle89Avj-kaiAp7cp4d23ShW7fzLyXSrAuJa1d5jSxOiunDr8bAj2kboDvUG9NU6vLPKHeFL3Trq-N5XnZ3b-DAr18axiPWSIDu4BGiC2Q4YEsofHsvQMQyiyjDdEZxxljiBDgJDDkjMLq_QEn_zn2:1qEacI:Xz45ISoMilwsRlsmzNcy8Zysa6QAAppSg75_SDHVxmk",
+    "expire_date": "2023-07-12T19:14:14.186Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "u8ys1x7ewk98y11d1t7lfvzolkmg1vuo",
+  "fields": {
+    "session_data": ".eJxVkLsOwjAMRf8lM1RNnITAxsTEQwgBYoncxn1A1YimMBTx71BgoJOla51zLT9Y7n1e0djjrS2EDS22xGYsh2Ifmu39tJQJrEUH5jjfrZq6izfn7eHasRGzPWFvgRpbujfCYRgmmF6o7jfBpyVWNvUNRb80RN_eaPEZ63nfPuQLDEWvVdxJh9JJLR3XKtNaKRIJTEm7eOrIgUwxEZnEiTATo0RmjOIxgdEAHN_SX_9HXWFobeXzsv47cPAD9nwB_P5ckA:1sMXt0:yHH_foyYDp5fm9DAUh-aE_q3-WdWvX8-7IIur9B8JFk",
+    "expire_date": "2024-07-10T19:00:54.342Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "w2idon1xvv47jyxzvez3t34iwj3180qw",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAZCiMu3XsGMgODVA1NSrsy3l2bdKHb_977LxVpXWpcu8xxzOqsjFGH35EpPaRtJN-p3SadprbMI-tN0Tvt-jpleV529--gUq_fGhCCJM85GHCZ0BKgQzsQFMESoBS0zP4kR0cmG5-st4yMFsQRm0G9PwNyOAA:1sLDhs:3-IvE21pKT2giMe0JSsXXi-F7cGVsZb6QH4H3m06ZYY",
+    "expire_date": "2024-07-07T03:15:56.627Z"
+  }
+},
+{
+  "model": "base.categories",
+  "pk": 1,
+  "fields": {
+    "name": "Работа"
+  }
+},
+{
+  "model": "base.categories",
+  "pk": 2,
+  "fields": {
+    "name": "Дом"
+  }
+},
+{
+  "model": "base.categories",
+  "pk": 3,
+  "fields": {
+    "name": "Развлечения"
+  }
+},
+{
+  "model": "base.categories",
+  "pk": 4,
+  "fields": {
+    "name": "Питомцы"
+  }
+},
+{
+  "model": "base.categories",
+  "pk": 5,
+  "fields": {
+    "name": "Покупки"
+  }
+},
+{
+  "model": "base.categories",
+  "pk": 6,
+  "fields": {
+    "name": "Для себя"
+  }
+},
+{
+  "model": "base.categories",
+  "pk": 7,
+  "fields": {
+    "name": "Учеба"
+  }
+},
+{
+  "model": "base.categories",
+  "pk": 8,
+  "fields": {
+    "name": "Хозяйство"
+  }
+},
+{
+  "model": "base.categories",
+  "pk": 9,
+  "fields": {
+    "name": "Письма"
+  }
+},
+{
+  "model": "base.categories",
+  "pk": 10,
+  "fields": {
+    "name": "Другое"
+  }
+},
+{
+  "model": "base.hashtag",
+  "pk": 1,
+  "fields": {
+    "name": "Важно"
+  }
+},
+{
+  "model": "base.hashtag",
+  "pk": 2,
+  "fields": {
+    "name": "Срочно"
+  }
+},
+{
+  "model": "base.hashtag",
+  "pk": 3,
+  "fields": {
+    "name": "Отложено"
+  }
+},
+{
+  "model": "base.hashtag",
+  "pk": 4,
+  "fields": {
+    "name": "Не важно"
+  }
+},
+{
+  "model": "base.hashtag",
+  "pk": 5,
+  "fields": {
+    "name": "Купить"
+  }
+},
+{
+  "model": "base.hashtag",
+  "pk": 6,
+  "fields": {
+    "name": "Доделать"
+  }
+},
+{
+  "model": "base.hashtag",
+  "pk": 7,
+  "fields": {
+    "name": "Утро"
+  }
+},
+{
+  "model": "base.hashtag",
+  "pk": 8,
+  "fields": {
+    "name": "День"
+  }
+},
+{
+  "model": "base.hashtag",
+  "pk": 9,
+  "fields": {
+    "name": "Вечер"
+  }
+},
+{
+  "model": "base.hashtag",
+  "pk": 10,
+  "fields": {
+    "name": "Ночь"
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 1,
+  "fields": {
+    "id": 15,
+    "title": "Починить холодильник",
+    "description": "надо",
+    "complete": true,
+    "date": "2023-06-13",
+    "user": 10,
+    "category": 2,
+    "filter": 4,
+    "notice": 10,
+    "history_date": "2023-11-26T15:58:45.858Z",
+    "history_change_reason": null,
+    "history_type": "~",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 2,
+  "fields": {
+    "id": 15,
+    "title": "Починить холодильник",
+    "description": "надо",
+    "complete": true,
+    "date": "2023-06-13",
+    "user": 10,
+    "category": 2,
+    "filter": 1,
+    "notice": 10,
+    "history_date": "2023-11-26T15:59:27.821Z",
+    "history_change_reason": null,
+    "history_type": "~",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 3,
+  "fields": {
+    "id": 16,
+    "title": "что-то",
+    "description": "сделать надо",
+    "complete": false,
+    "date": "2023-12-14",
+    "user": 1,
+    "category": 1,
+    "filter": 1,
+    "notice": 1,
+    "history_date": "2024-01-01T18:18:27.533Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 4,
+  "fields": {
+    "id": 17,
+    "title": "lol",
+    "description": "cx",
+    "complete": true,
+    "date": "2024-01-05",
+    "user": 2,
+    "category": 2,
+    "filter": 1,
+    "notice": 8,
+    "history_date": "2024-01-05T15:08:09.813Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 5,
+  "fields": {
+    "id": 17,
+    "title": "lol",
+    "description": "cx",
+    "complete": false,
+    "date": "2024-01-05",
+    "user": 2,
+    "category": 2,
+    "filter": 1,
+    "notice": 8,
+    "history_date": "2024-01-05T15:08:17.505Z",
+    "history_change_reason": null,
+    "history_type": "~",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 6,
+  "fields": {
+    "id": 18,
+    "title": "Задача",
+    "description": null,
+    "complete": false,
+    "date": "2024-01-07",
+    "user": null,
+    "category": 2,
+    "filter": null,
+    "notice": null,
+    "history_date": "2024-01-07T14:57:45.636Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 7,
+  "fields": {
+    "id": 19,
+    "title": "Задача",
+    "description": null,
+    "complete": false,
+    "date": "2024-01-07",
+    "user": null,
+    "category": 2,
+    "filter": null,
+    "notice": null,
+    "history_date": "2024-01-07T14:58:10.830Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 8,
+  "fields": {
+    "id": 20,
+    "title": "Новое название задачи",
+    "description": "Новое описание задачи",
+    "complete": false,
+    "date": "2024-01-07",
+    "user": null,
+    "category": 2,
+    "filter": null,
+    "notice": null,
+    "history_date": "2024-01-07T15:39:05.950Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 9,
+  "fields": {
+    "id": 21,
+    "title": "Заголовок",
+    "description": "Описание",
+    "complete": true,
+    "date": "2024-01-06",
+    "user": 2,
+    "category": 2,
+    "filter": 1,
+    "notice": 1,
+    "history_date": "2024-01-08T14:57:58.380Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 10,
+  "fields": {
+    "id": 22,
+    "title": "привет",
+    "description": "мир",
+    "complete": true,
+    "date": "2024-01-13",
+    "user": null,
+    "category": 3,
+    "filter": 2,
+    "notice": 3,
+    "history_date": "2024-01-08T15:02:47.522Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 11,
+  "fields": {
+    "id": 23,
+    "title": "fildhbvlfkhbvl",
+    "description": "dabbfbdfd",
+    "complete": true,
+    "date": "2024-01-20",
+    "user": 1,
+    "category": 8,
+    "filter": 7,
+    "notice": 6,
+    "history_date": "2024-01-08T15:10:11.563Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 12,
+  "fields": {
+    "id": 24,
+    "title": "Заголовок",
+    "description": "Описание",
+    "complete": false,
+    "date": "2024-01-19",
+    "user": 7,
+    "category": 3,
+    "filter": 1,
+    "notice": 9,
+    "history_date": "2024-01-08T15:12:05.498Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 13,
+  "fields": {
+    "id": 25,
+    "title": "da",
+    "description": "da",
+    "complete": false,
+    "date": "2024-06-23",
+    "user": 12,
+    "category": 1,
+    "filter": 2,
+    "notice": 1,
+    "history_date": "2024-06-23T04:46:22.585Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 14,
+  "fields": {
+    "id": 25,
+    "title": "da",
+    "description": "da",
+    "complete": false,
+    "date": "2024-06-23",
+    "user": 12,
+    "category": 1,
+    "filter": 2,
+    "notice": 1,
+    "history_date": "2024-06-23T04:56:00.819Z",
+    "history_change_reason": null,
+    "history_type": "-",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 15,
+  "fields": {
+    "id": 25,
+    "title": "dad",
+    "description": "da",
+    "complete": false,
+    "date": "2024-06-23",
+    "user": 11,
+    "category": 2,
+    "filter": 2,
+    "notice": 1,
+    "history_date": "2024-06-23T05:27:18.524Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 16,
+  "fields": {
+    "id": 25,
+    "title": "dad",
+    "description": "da",
+    "complete": false,
+    "date": "2024-06-23",
+    "user": 11,
+    "category": 2,
+    "filter": 2,
+    "notice": 1,
+    "history_date": "2024-06-23T05:48:27.774Z",
+    "history_change_reason": null,
+    "history_type": "-",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 17,
+  "fields": {
+    "id": 26,
+    "title": "da",
+    "description": "dwa",
+    "complete": false,
+    "date": "2024-06-23",
+    "user": 12,
+    "category": 1,
+    "filter": 5,
+    "notice": 1,
+    "history_date": "2024-06-23T06:02:33.514Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "base.historicaltask",
+  "pk": 18,
+  "fields": {
+    "id": 27,
+    "title": "ПЭНИС",
+    "description": "ХУЙ",
+    "complete": false,
+    "date": "2024-06-26",
+    "user": 13,
+    "category": 1,
+    "filter": 1,
+    "notice": 1,
+    "history_date": "2024-06-26T19:00:46.871Z",
+    "history_change_reason": null,
+    "history_type": "+",
+    "history_user": null
+  }
+},
+{
+  "model": "base.task",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "title": "Помыть кошку",
+    "description": "Помыть кошку новым шампунем",
+    "complete": true,
+    "date": "2023-06-28",
+    "category": 4,
+    "filter": 5,
+    "notice": 1,
+    "hashtag": [
+      3,
+      7
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "title": "Нарисовать скетч",
+    "description": "",
+    "complete": false,
+    "date": "2023-06-28",
+    "category": 7,
+    "filter": 3,
+    "notice": 4,
+    "hashtag": [
+      3,
+      9
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "title": "Отнести ноутбук в ремонт",
+    "description": "Отнести в KRepair",
+    "complete": false,
+    "date": "2023-06-27",
+    "category": 7,
+    "filter": 1,
+    "notice": 4,
+    "hashtag": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 4,
+  "fields": {
+    "user": 3,
+    "title": "Отдать долг",
+    "description": "долг 150р",
+    "complete": true,
+    "date": "2023-03-23",
+    "category": 10,
+    "filter": 10,
+    "notice": 5,
+    "hashtag": [
+      2
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 5,
+  "fields": {
+    "user": 2,
+    "title": "Выложить пост",
+    "description": "выложить фотки",
+    "complete": false,
+    "date": "2023-03-30",
+    "category": 6,
+    "filter": 8,
+    "notice": 6,
+    "hashtag": [
+      3,
+      8
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 6,
+  "fields": {
+    "user": 4,
+    "title": "Выложить проект",
+    "description": "Выложить проект на платформу",
+    "complete": true,
+    "date": "2023-05-12",
+    "category": 7,
+    "filter": 8,
+    "notice": 1,
+    "hashtag": [
+      2,
+      10
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 7,
+  "fields": {
+    "user": 4,
+    "title": "Добавить работы в портфолио",
+    "description": "",
+    "complete": false,
+    "date": "2023-06-28",
+    "category": 7,
+    "filter": 3,
+    "notice": 6,
+    "hashtag": [
+      3,
+      9
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 8,
+  "fields": {
+    "user": 5,
+    "title": "Погулять с друзьями",
+    "description": "встретиться с подружками",
+    "complete": false,
+    "date": "2023-04-05",
+    "category": 3,
+    "filter": 7,
+    "notice": 6,
+    "hashtag": [
+      4,
+      8,
+      9
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 9,
+  "fields": {
+    "user": 5,
+    "title": "Купить подарок на день рождения",
+    "description": "",
+    "complete": true,
+    "date": "2023-05-20",
+    "category": 10,
+    "filter": 9,
+    "notice": 2,
+    "hashtag": [
+      1,
+      2,
+      5
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 10,
+  "fields": {
+    "user": 6,
+    "title": "Посадить цветы на даче",
+    "description": "",
+    "complete": false,
+    "date": "2023-05-26",
+    "category": 8,
+    "filter": 1,
+    "notice": 6,
+    "hashtag": [
+      4,
+      9
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 11,
+  "fields": {
+    "user": 6,
+    "title": "Ответь на почту",
+    "description": "ответить на письма",
+    "complete": true,
+    "date": "2023-06-19",
+    "category": 9,
+    "filter": 8,
+    "notice": 1,
+    "hashtag": [
+      1,
+      7,
+      8,
+      9
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 12,
+  "fields": {
+    "user": 7,
+    "title": "Купить корм",
+    "description": "купить корм коту",
+    "complete": true,
+    "date": "2023-06-14",
+    "category": 4,
+    "filter": 2,
+    "notice": 3,
+    "hashtag": [
+      5,
+      8
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 13,
+  "fields": {
+    "user": 8,
+    "title": "Сделать уборку",
+    "description": "",
+    "complete": true,
+    "date": "2023-04-14",
+    "category": 2,
+    "filter": 4,
+    "notice": 4,
+    "hashtag": [
+      3,
+      6,
+      8
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 14,
+  "fields": {
+    "user": 9,
+    "title": "Стрижка",
+    "description": "пойти на стрижку",
+    "complete": false,
+    "date": "2023-05-25",
+    "category": 6,
+    "filter": 1,
+    "notice": 6,
+    "hashtag": [
+      2,
+      9
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 15,
+  "fields": {
+    "user": 10,
+    "title": "Починить холодильник",
+    "description": "надо",
+    "complete": true,
+    "date": "2023-06-13",
+    "category": 2,
+    "filter": 1,
+    "notice": 10,
+    "hashtag": [
+      2,
+      8
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 16,
+  "fields": {
+    "user": 1,
+    "title": "что-то",
+    "description": "сделать надо",
+    "complete": false,
+    "date": "2023-12-14",
+    "category": 1,
+    "filter": 1,
+    "notice": 1,
+    "hashtag": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 17,
+  "fields": {
+    "user": 2,
+    "title": "lol",
+    "description": "cx",
+    "complete": false,
+    "date": "2024-01-05",
+    "category": 2,
+    "filter": 1,
+    "notice": 8,
+    "hashtag": [
+      1
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 18,
+  "fields": {
+    "user": null,
+    "title": "Задача",
+    "description": null,
+    "complete": false,
+    "date": "2024-01-07",
+    "category": 2,
+    "filter": null,
+    "notice": null,
+    "hashtag": [
+      1
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 19,
+  "fields": {
+    "user": null,
+    "title": "Задача",
+    "description": null,
+    "complete": false,
+    "date": "2024-01-07",
+    "category": 2,
+    "filter": null,
+    "notice": null,
+    "hashtag": [
+      1
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 20,
+  "fields": {
+    "user": null,
+    "title": "Новое название задачи",
+    "description": "Новое описание задачи",
+    "complete": false,
+    "date": "2024-01-07",
+    "category": 2,
+    "filter": null,
+    "notice": null,
+    "hashtag": [
+      3,
+      7
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 21,
+  "fields": {
+    "user": 2,
+    "title": "Заголовок",
+    "description": "Описание",
+    "complete": true,
+    "date": "2024-01-06",
+    "category": 2,
+    "filter": 1,
+    "notice": 1,
+    "hashtag": [
+      5,
+      8
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 22,
+  "fields": {
+    "user": null,
+    "title": "привет",
+    "description": "мир",
+    "complete": true,
+    "date": "2024-01-13",
+    "category": 3,
+    "filter": 2,
+    "notice": 3,
+    "hashtag": [
+      2,
+      4
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 23,
+  "fields": {
+    "user": 1,
+    "title": "fildhbvlfkhbvl",
+    "description": "dabbfbdfd",
+    "complete": true,
+    "date": "2024-01-20",
+    "category": 8,
+    "filter": 7,
+    "notice": 6,
+    "hashtag": [
+      2,
+      4
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 24,
+  "fields": {
+    "user": 7,
+    "title": "Заголовок",
+    "description": "Описание",
+    "complete": false,
+    "date": "2024-01-19",
+    "category": 3,
+    "filter": 1,
+    "notice": 9,
+    "hashtag": [
+      1,
+      5
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 26,
+  "fields": {
+    "user": 12,
+    "title": "da",
+    "description": "dwa",
+    "complete": false,
+    "date": "2024-06-23",
+    "category": 1,
+    "filter": 5,
+    "notice": 1,
+    "hashtag": [
+      3
+    ]
+  }
+},
+{
+  "model": "base.task",
+  "pk": 27,
+  "fields": {
+    "user": 13,
+    "title": "ПЭНИС",
+    "description": "ХУЙ",
+    "complete": false,
+    "date": "2024-06-26",
+    "category": 1,
+    "filter": 1,
+    "notice": 1,
+    "hashtag": [
+      1
+    ]
+  }
+},
+{
+  "model": "base.filter",
+  "pk": 1,
+  "fields": {
+    "name": "Личное"
+  }
+},
+{
+  "model": "base.filter",
+  "pk": 2,
+  "fields": {
+    "name": "Магазин"
+  }
+},
+{
+  "model": "base.filter",
+  "pk": 3,
+  "fields": {
+    "name": "Задание"
+  }
+},
+{
+  "model": "base.filter",
+  "pk": 4,
+  "fields": {
+    "name": "Семья"
+  }
+},
+{
+  "model": "base.filter",
+  "pk": 5,
+  "fields": {
+    "name": "Дети"
+  }
+},
+{
+  "model": "base.filter",
+  "pk": 6,
+  "fields": {
+    "name": "Коллеги"
+  }
+},
+{
+  "model": "base.filter",
+  "pk": 7,
+  "fields": {
+    "name": "Друзья"
+  }
+},
+{
+  "model": "base.filter",
+  "pk": 8,
+  "fields": {
+    "name": "Социальные сети"
+  }
+},
+{
+  "model": "base.filter",
+  "pk": 9,
+  "fields": {
+    "name": "Родители"
+  }
+},
+{
+  "model": "base.filter",
+  "pk": 10,
+  "fields": {
+    "name": "Одногруппники"
+  }
+},
+{
+  "model": "base.notice",
+  "pk": 1,
+  "fields": {
+    "notice": "Лучше сделать сегодня"
+  }
+},
+{
+  "model": "base.notice",
+  "pk": 2,
+  "fields": {
+    "notice": "На день рождения"
+  }
+},
+{
+  "model": "base.notice",
+  "pk": 3,
+  "fields": {
+    "notice": "Не забыть купить"
+  }
+},
+{
+  "model": "base.notice",
+  "pk": 4,
+  "fields": {
+    "notice": "Доделать в ближайшее время"
+  }
+},
+{
+  "model": "base.notice",
+  "pk": 5,
+  "fields": {
+    "notice": "Погасить долг"
+  }
+},
+{
+  "model": "base.notice",
+  "pk": 6,
+  "fields": {
+    "notice": "Сделать на неделе"
+  }
+},
+{
+  "model": "base.notice",
+  "pk": 7,
+  "fields": {
+    "notice": "Записаться"
+  }
+},
+{
+  "model": "base.notice",
+  "pk": 8,
+  "fields": {
+    "notice": "Позвонить"
+  }
+},
+{
+  "model": "base.notice",
+  "pk": 9,
+  "fields": {
+    "notice": "Сделать в этом месяце"
+  }
+},
+{
+  "model": "base.notice",
+  "pk": 10,
+  "fields": {
+    "notice": "Отремонтировать"
+  }
+},
+{
+  "model": "social_django.usersocialauth",
+  "pk": 2,
+  "fields": {
+    "user": 12,
+    "provider": "google-oauth2",
+    "uid": "loksifon1@gmail.com",
+    "extra_data": {
+      "auth_time": 1719122638,
+      "expires": 3599,
+      "token_type": "Bearer",
+      "access_token": "ya29.a0AXooCgv6YP2XhQcbmA_NPTXvVJf_UfD0JBOD5S00KCpWmOOIy1RZ9GIrgZY7pRwtj4qK5aBpihs_nW61e3LHRQtbv6VfmxqOIxxEj3rjiCUKs2_YJhK05wn8wU5AaLRdOeDSIqxQspbf-b6ALvi9TKjxBucLYNqesgaCgYKAZISARESFQHGX2MiIZJcGv0A-FvFVtus-qqleg0169"
+    },
+    "created": "2024-06-23T05:57:30.916Z",
+    "modified": "2024-06-23T06:03:58.252Z"
+  }
+},
+{
+  "model": "social_django.usersocialauth",
+  "pk": 3,
+  "fields": {
+    "user": 13,
+    "provider": "google-oauth2",
+    "uid": "beingp0z1t1v3@gmail.com",
+    "extra_data": {
+      "auth_time": 1719428454,
+      "expires": 3599,
+      "token_type": "Bearer",
+      "access_token": "ya29.a0AXooCgtOf2V1yeMDewkiVSI2U72GmiS6w_RblvS10arcRCMLG58LOBPIGfTNv9bms_Pmb7uRd-f1l0-Ew9Y_Ns9MjeSteGGj7nelAboEEXJzvONQMKO9RL10SG1WuUkl2WF-3Uozi1DoC2oSZlrJqe0cTOM91DpKZ9GRaCgYKAdkSARMSFQHGX2MiAoS-P_6SgoBej09Fc9nGJw0171"
+    },
+    "created": "2024-06-26T18:59:52.821Z",
+    "modified": "2024-06-26T19:00:54.305Z"
+  }
+}
+]
