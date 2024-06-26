@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 from unittest.mock import ANY, patch
 
+import django
 from django.contrib.admin import AdminSite
 from django.contrib.admin.utils import quote
 from django.contrib.auth import get_user_model
@@ -10,10 +11,12 @@ from django.test import TestCase
 from django.test.client import RequestFactory
 from django.test.utils import override_settings
 from django.urls import reverse
+from django.utils.dateparse import parse_datetime
 from django.utils.encoding import force_str
 
 from simple_history.admin import SimpleHistoryAdmin
 from simple_history.models import HistoricalRecords
+from simple_history.template_utils import HistoricalRecordContextHelper
 from simple_history.tests.external.models import ExternalModelWithCustomUserIdField
 from simple_history.tests.tests.utils import (
     PermissionAction,
@@ -29,8 +32,10 @@ from ..models import (
     Employee,
     FileModel,
     Person,
+    Place,
     Planet,
     Poll,
+    PollWithManyToMany,
     State,
 )
 
@@ -85,6 +90,169 @@ class AdminSiteTest(TestCase):
         self.assertContains(response, "Change reason")
         self.assertContains(response, "A random test reason")
         self.assertContains(response, self.user.username)
+
+    def test_history_list_contains_diff_changes(self):
+        self.login()
+        poll = Poll(question="why?", pub_date=today)
+        poll._history_user = self.user
+        poll.save()
+
+        poll_history_url = get_history_url(poll)
+        response = self.client.get(poll_history_url)
+        self.assertContains(response, "Changes")
+        # The poll hasn't had any of its fields changed after creation,
+        # so these values should not be present
+        self.assertNotContains(response, "Question:")
+        self.assertNotContains(response, "why?")
+        self.assertNotContains(response, "Date published:")
+
+        poll.question = "how?"
+        poll.save()
+        response = self.client.get(poll_history_url)
+        self.assertContains(response, "Question:")
+        self.assertContains(response, "why?")
+        self.assertContains(response, "how?")
+        self.assertNotContains(response, "Date published:")
+
+        poll.question = "when?"
+        poll.pub_date = parse_datetime("2024-04-04 04:04:04")
+        poll.save()
+        response = self.client.get(poll_history_url)
+        self.assertContains(response, "Question:")
+        self.assertContains(response, "why?")
+        self.assertContains(response, "how?")
+        self.assertContains(response, "when?")
+        self.assertContains(response, "Date published:")
+        self.assertContains(response, "2021-01-01 10:00:00")
+        self.assertContains(response, "2024-04-04 04:04:04")
+
+    def test_history_list_contains_diff_changes_for_foreign_key_fields(self):
+        self.login()
+        poll1 = Poll.objects.create(question="why?", pub_date=today)
+        poll1_pk = poll1.pk
+        poll2 = Poll.objects.create(question="how?", pub_date=today)
+        poll2_pk = poll2.pk
+        choice = Choice(poll=poll1, votes=1)
+        choice._history_user = self.user
+        choice.save()
+        choice_history_url = get_history_url(choice)
+
+        # Before changing the poll:
+        response = self.client.get(choice_history_url)
+        self.assertNotContains(response, "Poll:")
+        expected_old_poll = f"Poll object ({poll1_pk})"
+        self.assertNotContains(response, expected_old_poll)
+        expected_new_poll = f"Poll object ({poll2_pk})"
+        self.assertNotContains(response, expected_new_poll)
+
+        # After changing the poll:
+        choice.poll = poll2
+        choice.save()
+        response = self.client.get(choice_history_url)
+        self.assertContains(response, "Poll:")
+        self.assertContains(response, expected_old_poll)
+        self.assertContains(response, expected_new_poll)
+
+        # After deleting all polls:
+        Poll.objects.all().delete()
+        response = self.client.get(choice_history_url)
+        self.assertContains(response, "Poll:")
+        self.assertContains(response, f"Deleted poll (pk={poll1_pk})")
+        self.assertContains(response, f"Deleted poll (pk={poll2_pk})")
+
+    @patch(
+        # Test without the customization in PollWithManyToMany's admin class
+        "simple_history.tests.admin.HistoricalPollWithManyToManyContextHelper",
+        HistoricalRecordContextHelper,
+    )
+    def test_history_list_contains_diff_changes_for_m2m_fields(self):
+        self.login()
+        poll = PollWithManyToMany(question="why?", pub_date=today)
+        poll._history_user = self.user
+        poll.save()
+        place1 = Place.objects.create(name="Here")
+        place1_pk = place1.pk
+        place2 = Place.objects.create(name="There")
+        place2_pk = place2.pk
+        poll_history_url = get_history_url(poll)
+
+        # Before adding places:
+        response = self.client.get(poll_history_url)
+        self.assertNotContains(response, "Places:")
+        expected_old_places = "[]"
+        self.assertNotContains(response, expected_old_places)
+        expected_new_places = (
+            f"[Place object ({place1_pk}), Place object ({place2_pk})]"
+        )
+        self.assertNotContains(response, expected_new_places)
+
+        # After adding places:
+        poll.places.add(place1, place2)
+        response = self.client.get(poll_history_url)
+        self.assertContains(response, "Places:")
+        self.assertContains(response, expected_old_places)
+        self.assertContains(response, expected_new_places)
+
+        # After deleting all places:
+        Place.objects.all().delete()
+        response = self.client.get(poll_history_url)
+        self.assertContains(response, "Places:")
+        self.assertContains(response, expected_old_places)
+        expected_new_places = (
+            f"[Deleted place (pk={place1_pk}), Deleted place (pk={place2_pk})]"
+        )
+        self.assertContains(response, expected_new_places)
+
+    def test_history_list_doesnt_contain_too_long_diff_changes(self):
+        self.login()
+
+        def create_and_change_poll(*, initial_question, changed_question) -> Poll:
+            poll = Poll(question=initial_question, pub_date=today)
+            poll._history_user = self.user
+            poll.save()
+            poll.question = changed_question
+            poll.save()
+            return poll
+
+        repeated_chars = (
+            HistoricalRecordContextHelper.DEFAULT_MAX_DISPLAYED_DELTA_CHANGE_CHARS
+        )
+
+        # Number of characters right on the limit
+        poll1 = create_and_change_poll(
+            initial_question="A" * repeated_chars,
+            changed_question="B" * repeated_chars,
+        )
+        response = self.client.get(get_history_url(poll1))
+        self.assertContains(response, "Question:")
+        self.assertContains(response, "A" * repeated_chars)
+        self.assertContains(response, "B" * repeated_chars)
+
+        # Number of characters just over the limit
+        poll2 = create_and_change_poll(
+            initial_question="A" * (repeated_chars + 1),
+            changed_question="B" * (repeated_chars + 1),
+        )
+        response = self.client.get(get_history_url(poll2))
+        self.assertContains(response, "Question:")
+        self.assertContains(response, f"{'A' * 61}[35 chars]AAAAA")
+        self.assertContains(response, f"{'B' * 61}[35 chars]BBBBB")
+
+    def test_overriding__historical_record_context_helper__with_custom_m2m_string(self):
+        self.login()
+
+        place1 = Place.objects.create(name="Place 1")
+        place2 = Place.objects.create(name="Place 2")
+        place3 = Place.objects.create(name="Place 3")
+        poll = PollWithManyToMany.objects.create(question="why?", pub_date=today)
+        poll.places.add(place1, place2)
+        poll.places.set([place3])
+
+        response = self.client.get(get_history_url(poll))
+        self.assertContains(response, "Places:")
+        self.assertContains(response, "[]")
+        self.assertContains(response, "[<b>Place 1</b>, <b>Place 2</b>]")
+        self.assertContains(response, "[<b>Place 3</b>]")
 
     def test_history_list_custom_fields(self):
         model_name = self.user._meta.model_name
@@ -454,6 +622,7 @@ class AdminSiteTest(TestCase):
         context = {
             **admin_site.each_context(request),
             # Verify this is set for original object
+            "log_entries": ANY,
             "original": poll,
             "change_history": False,
             "title": "Revert %s" % force_str(poll),
@@ -483,9 +652,9 @@ class AdminSiteTest(TestCase):
             "save_on_top": admin.save_on_top,
             "root_path": getattr(admin_site, "root_path", None),
         }
-        # This key didn't exist prior to Django 4.2
-        if "log_entries" in context:
-            context["log_entries"] = ANY
+        # DEV: Remove this when support for Django 4.2 has been dropped
+        if django.VERSION < (5, 0):
+            del context["log_entries"]
 
         mock_render.assert_called_once_with(
             request, admin.object_history_form_template, context
@@ -513,6 +682,7 @@ class AdminSiteTest(TestCase):
         context = {
             **admin_site.each_context(request),
             # Verify this is set for history object not poll object
+            "log_entries": ANY,
             "original": history.instance,
             "change_history": True,
             "title": "Revert %s" % force_str(history.instance),
@@ -542,9 +712,9 @@ class AdminSiteTest(TestCase):
             "save_on_top": admin.save_on_top,
             "root_path": getattr(admin_site, "root_path", None),
         }
-        # This key didn't exist prior to Django 4.2
-        if "log_entries" in context:
-            context["log_entries"] = ANY
+        # DEV: Remove this when support for Django 4.2 has been dropped
+        if django.VERSION < (5, 0):
+            del context["log_entries"]
 
         mock_render.assert_called_once_with(
             request, admin.object_history_form_template, context
@@ -572,6 +742,7 @@ class AdminSiteTest(TestCase):
         context = {
             **admin_site.each_context(request),
             # Verify this is set for history object not poll object
+            "log_entries": ANY,
             "original": poll,
             "change_history": False,
             "title": "Revert %s" % force_str(poll),
@@ -601,9 +772,9 @@ class AdminSiteTest(TestCase):
             "save_on_top": admin.save_on_top,
             "root_path": getattr(admin_site, "root_path", None),
         }
-        # This key didn't exist prior to Django 4.2
-        if "log_entries" in context:
-            context["log_entries"] = ANY
+        # DEV: Remove this when support for Django 4.2 has been dropped
+        if django.VERSION < (5, 0):
+            del context["log_entries"]
 
         mock_render.assert_called_once_with(
             request, admin.object_history_form_template, context
@@ -631,6 +802,7 @@ class AdminSiteTest(TestCase):
         context = {
             **admin_site.each_context(request),
             # Verify this is set for history object
+            "log_entries": ANY,
             "original": history.instance,
             "change_history": True,
             "title": "Revert %s" % force_str(history.instance),
@@ -662,9 +834,9 @@ class AdminSiteTest(TestCase):
             "save_on_top": admin.save_on_top,
             "root_path": getattr(admin_site, "root_path", None),
         }
-        # This key didn't exist prior to Django 4.2
-        if "log_entries" in context:
-            context["log_entries"] = ANY
+        # DEV: Remove this when support for Django 4.2 has been dropped
+        if django.VERSION < (5, 0):
+            del context["log_entries"]
 
         mock_render.assert_called_once_with(
             request, admin.object_history_form_template, context
@@ -695,6 +867,7 @@ class AdminSiteTest(TestCase):
         context = {
             **admin_site.each_context(request),
             # Verify this is set for original object
+            "log_entries": ANY,
             "anything_else": "will be merged into context",
             "original": poll,
             "change_history": False,
@@ -725,9 +898,9 @@ class AdminSiteTest(TestCase):
             "save_on_top": admin.save_on_top,
             "root_path": getattr(admin_site, "root_path", None),
         }
-        # This key didn't exist prior to Django 4.2
-        if "log_entries" in context:
-            context["log_entries"] = ANY
+        # DEV: Remove this when support for Django 4.2 has been dropped
+        if django.VERSION < (5, 0):
+            del context["log_entries"]
 
         mock_render.assert_called_once_with(
             request, admin.object_history_form_template, context

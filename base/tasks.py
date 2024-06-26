@@ -21,4 +21,3 @@ def send_daily_emails():
         )
 
 
-send_daily_emails.delay()

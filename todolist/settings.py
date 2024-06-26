@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'import_export',
     'simple_history',
     'drf_yasg',
-    'celery'
+    'celery',
     'social_django',
 ]
 
@@ -56,15 +56,6 @@ CACHES = {
         },
         "KEY_PREFIX": "example"
     }
-}
-
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-CELERY_BEAT_SCHEDULE = {
-    'send-daily-emails': {
-        'task': 'base.tasks.send_daily_emails',
-        'schedule': 86400.0,
-    },
 }
 
 MIDDLEWARE = [
