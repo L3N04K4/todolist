@@ -43,7 +43,28 @@ INSTALLED_APPS = [
     'import_export',
     'simple_history',
     'drf_yasg',
+    'celery'
 ]
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        },
+        "KEY_PREFIX": "example"
+    }
+}
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_BEAT_SCHEDULE = {
+    'send-daily-emails': {
+        'task': 'base.tasks.send_daily_emails',
+        'schedule': 86400.0,
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -126,4 +147,23 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 5,
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'korablin1605@gmail.com'
+EMAIL_HOST_PASSWORD = 'ndom ntmg myyw esho'
+
+
+from celery.schedules import crontab
+from datetime import datetime
+
+CELERY_BEAT_SCHEDULE = { # scheduler configuration
+    'send_email': {  # whatever the name you want
+        'task': 'test_app.tasks.task_one', # name of task with path
+        'schedule': 30.0, # crontab() runs the tasks every minute
+    }
 }
